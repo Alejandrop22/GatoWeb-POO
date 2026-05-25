@@ -104,6 +104,7 @@ public class Tablero extends JPanel {
                 tablero[i][j].setText("");
             }
         }
+        habilitarBotones();
     }
 
     public void habilitarBotones() {

@@ -91,9 +91,9 @@ public class Tablero extends JPanel {
     }
 
     public void actualizarBoton(int x, int y) {
-        if (juego.turno % 2 == 0) {
+        if (juego.tablero[x][y] == 1) {
             tablero[x][y].setText("X");
-        } else {
+        } else if (juego.tablero[x][y] == -1) {
             tablero[x][y].setText("O");
         }
     }

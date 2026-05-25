@@ -10,7 +10,6 @@ public class Tablero extends JPanel {
     String ipRival;
     int puertoLocal;
     int puertoRival;
-    private boolean escuchando;
 
     public Tablero() {
         setLayout(new GridLayout(3, 3));
@@ -43,6 +42,7 @@ public class Tablero extends JPanel {
 
                     // Enviar coordenadas al rival
                     enviarMensaje(ipRival, x + "," + y, puertoRival);
+                    deshabilitarBotones();
 
                     if (ganador == 1 || ganador == -1) {
                         JOptionPane.showMessageDialog(null, ganador == 1 ? "¡Ganaste!" : "¡Perdiste!");
@@ -55,14 +55,8 @@ public class Tablero extends JPanel {
     }
 
     public void escucharMensaje(int puerto) {
-        if (escuchando) {
-            return;
-        }
-
-        escuchando = true;
-
         new Thread(() -> {
-            while (escuchando) {
+            while (true) {
                 Servidor servidor = new Servidor(puerto);
                 String mensaje = servidor.mensajeEntrante();
 
@@ -72,12 +66,13 @@ public class Tablero extends JPanel {
 
                 System.out.println("Mensaje recibido: " + mensaje);
 
-                int x = mensaje.charAt(0) - '0';
-                int y = mensaje.charAt(2) - '0';
+                int x = mensaje.charAt(0) - 48;
+                int y = mensaje.charAt(2) - 48;
 
                 SwingUtilities.invokeLater(() -> {
                     int ganador = juego.recibirCoordenadas(x, y);
                     actualizarBoton(x, y);
+                    habilitarBotones();
 
                     if (ganador == 1 || ganador == -1) {
                         JOptionPane.showMessageDialog(null, "¡El rival ganó!");
@@ -114,7 +109,9 @@ public class Tablero extends JPanel {
     public void habilitarBotones() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                tablero[i][j].setEnabled(true);
+                if (tablero[i][j].getText().equals("")) {
+                    tablero[i][j].setEnabled(true);
+                }
             }
         }
     }

@@ -1,7 +1,5 @@
 import javax.swing.*;
 
-//hola
-
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -15,9 +13,12 @@ public class Main {
 
             Tablero tablero = new Tablero();
             tablero.configurar(ipRival, puertoLocal, puertoRival);
-            tablero.escucharMensaje(puertoLocal);
 
-            Ventana ventana = new Ventana();
+            boolean empiezaDeshabilitado = Boolean.parseBoolean(
+                    JOptionPane.showInputDialog("¿Empiezas esperando? true/false:")
+            );
+
+            Ventana ventana = new Ventana(empiezaDeshabilitado);
             ventana.setTablero(tablero);
             ventana.setVisible(true);
         });

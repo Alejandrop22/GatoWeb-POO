@@ -23,14 +23,12 @@ public class Juego {
         if (tablero[i][0] == tablero[i][1] && tablero[i][1] == tablero[i][2] && tablero[i][0] != 0) {
             int ganador = tablero[i][0];
             System.out.println("El ganador es el jugador " + ganador);
-            reiniciarJuego();
             return ganador;
         }
 
         if (tablero[0][i] == tablero[1][i] && tablero[1][i] == tablero[2][i] && tablero[0][i] != 0) {
             int ganador = tablero[0][i];
             System.out.println("El ganador es el jugador " + ganador);
-            reiniciarJuego();
             return ganador;
         }
     }
@@ -38,14 +36,12 @@ public class Juego {
     if (tablero[0][0] == tablero[1][1] && tablero[1][1] == tablero[2][2] && tablero[0][0] != 0) {
         int ganador = tablero[0][0];
         System.out.println("El ganador es el jugador " + ganador);
-        reiniciarJuego();
         return ganador;
     }
 
     if (tablero[0][2] == tablero[1][1] && tablero[1][1] == tablero[2][0] && tablero[0][2] != 0) {
         int ganador = tablero[0][2];
         System.out.println("El ganador es el jugador " + ganador);
-        reiniciarJuego();
         return ganador;
     }
 

@@ -60,10 +60,6 @@ public class Tablero extends JPanel {
                 Servidor servidor = new Servidor(puerto);
                 String mensaje = servidor.mensajeEntrante();
 
-                if (mensaje == null || !mensaje.matches("\\d,\\d")) {
-                    continue;
-                }
-
                 System.out.println("Mensaje recibido: " + mensaje);
 
                 int x = mensaje.charAt(0) - 48;
@@ -105,6 +101,7 @@ public class Tablero extends JPanel {
             }
         }
         habilitarBotones();
+        juego.reiniciarJuego();
     }
 
     public void habilitarBotones() {

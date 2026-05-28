@@ -70,8 +70,13 @@ public class Tablero extends JPanel {
                     actualizarBoton(x, y);
                     habilitarBotones();
 
-                    if (ganador == 1 || ganador == -1) {
-                        JOptionPane.showMessageDialog(null, "¡El rival ganó!");
+                    if (ganador == 1 ) {
+                        JOptionPane.showMessageDialog(null, "Gano el X");
+                        reiniciarTablero();
+                        juego.reiniciarJuego();
+                    }
+                    if (ganador == -1) {
+                        JOptionPane.showMessageDialog(null, "Gano el O");
                         reiniciarTablero();
                         juego.reiniciarJuego();
                     }

@@ -40,12 +40,10 @@ public class Tablero extends JPanel {
                     int ganador = juego.recibirCoordenadas(x, y);
                     actualizarBoton(x, y);
 
-                    // Enviar coordenadas al rival
                     enviarMensaje(ipRival, x + "," + y, puertoRival);
                     deshabilitarBotones();
 
                     if (ganador == 1 || ganador == -1) {
-                        JOptionPane.showMessageDialog(null, ganador == 1 ? "¡Ganaste!" : "¡Perdiste!");
                         reiniciarTablero();
                         juego.reiniciarJuego();
                     }
@@ -60,8 +58,6 @@ public class Tablero extends JPanel {
                 Servidor servidor = new Servidor(puerto);
                 String mensaje = servidor.mensajeEntrante();
 
-                System.out.println("Mensaje recibido: " + mensaje);
-
                 int x = mensaje.charAt(0) - 48;
                 int y = mensaje.charAt(2) - 48;
 
@@ -71,12 +67,12 @@ public class Tablero extends JPanel {
                     habilitarBotones();
 
                     if (ganador == 1 ) {
-                        JOptionPane.showMessageDialog(null, "Gano el X");
+                        JOptionPane.showMessageDialog(null, "Gano el O");
                         reiniciarTablero();
                         juego.reiniciarJuego();
                     }
                     if (ganador == -1) {
-                        JOptionPane.showMessageDialog(null, "Gano el O");
+                        JOptionPane.showMessageDialog(null, "Gano el X");
                         reiniciarTablero();
                         juego.reiniciarJuego();
                     }

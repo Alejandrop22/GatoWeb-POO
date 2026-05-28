@@ -73,17 +73,8 @@ public class Chat extends JPanel implements ActionListener {
     }
 
     private void procesarMensajeDeRed(String mensaje) {
-        if (!mensaje.startsWith("CHAT|")) {
-            txtarea.append("Mensaje de chat inválido: " + mensaje + "\n");
-            return;
-        }
 
         String[] partes = mensaje.split("\\|", 3);
-
-        if (partes.length < 3) {
-            txtarea.append("Mensaje de chat incompleto\n");
-            return;
-        }
 
         String remitente = partes[1];
         String texto = partes[2];
@@ -104,7 +95,6 @@ public class Chat extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnenviar) {
             String texto = txtfield.getText();
-            if (texto == null || texto.isBlank()) return;
 
             Mensje msg = codificar(texto);
 
@@ -131,22 +121,6 @@ public class Chat extends JPanel implements ActionListener {
         return tableroPanel;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getWins() {
-        return wins;
-    }
-
-    public void setWins(int wins) {
-        this.wins = wins;
-    }
-
     public void acutualizarChat(String mensaje, String nombreRemitente, boolean esLocal) {
         if (esLocal) {
             txtarea.append("yo: " + mensaje + "\n");
@@ -156,9 +130,6 @@ public class Chat extends JPanel implements ActionListener {
     }
 
     public Mensje codificar(String texto) {
-        if (texto == null || texto.isBlank()) {
-            return new Mensje(2, 0, "");
-        }
 
         String cmd = texto.trim();
 
@@ -210,16 +181,7 @@ public class Chat extends JPanel implements ActionListener {
                 txtarea.append("No hay tablero conectado al chat\n");
             }
 
-        } else if (msg.getComando() == 4) {
-            if (msg.getExtra() == null || msg.getExtra().isBlank()) {
-                txtarea.append("Uso: /nombre TU_NOMBRE\n");
-            } else {
-                String anterior = this.nombre;
-                this.nombre = msg.getExtra().trim();
-                txtarea.append("Nombre cambiado: " + anterior + " a " + this.nombre + "\n");
-            }
-
-        } else {
+        } else  {
             txtarea.append("Comando desconocido. Usa /help\n");
         }
     }

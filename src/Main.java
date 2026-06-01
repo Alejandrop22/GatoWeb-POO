@@ -5,10 +5,10 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
 
             String ipRival = JOptionPane.showInputDialog("IP del rival:");
-            String puertoLocalStr = JOptionPane.showInputDialog("Tu puerto (ej: 5000):");
-            String puertoRivalStr = JOptionPane.showInputDialog("Puerto del rival (ej: 5001):");
-            String puertoLocalChatStr = JOptionPane.showInputDialog("Tu puerto chat (ej: 5002):");
-            String puertoRivalChatStr = JOptionPane.showInputDialog("Puerto chat del rival (ej: 5003):");
+            String puertoLocalStr = JOptionPane.showInputDialog("Tu puerto ");
+            String puertoRivalStr = JOptionPane.showInputDialog("Puerto del rival ");
+            String puertoLocalChatStr = JOptionPane.showInputDialog("Tu puerto chat");
+            String puertoRivalChatStr = JOptionPane.showInputDialog("Puerto chat del rival");
 
             int puertoLocal = Integer.parseInt(puertoLocalStr);
             int puertoRival = Integer.parseInt(puertoRivalStr);

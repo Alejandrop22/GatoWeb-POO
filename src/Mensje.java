@@ -4,15 +4,8 @@ public class Mensje implements Serializable {
     private String mensaje;
     private int tipo;
     private int comando;
-    private String extra;
 
     public Mensje(int tipo, int comando, String mensaje) {
-        this(tipo, comando, mensaje, null);
-    }
-
-    public Mensje(int tipo, int comando, String mensaje, String extra) {
-
-        this.extra = extra;
         this.tipo = tipo;
         this.comando = comando;
         this.mensaje = mensaje;
@@ -40,13 +33,5 @@ public class Mensje implements Serializable {
 
     public void setComando(int comando) {
         this.comando = comando;
-    }
-
-    public String getExtra() {
-        return extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
     }
 }

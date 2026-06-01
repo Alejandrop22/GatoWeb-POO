@@ -9,7 +9,6 @@ public class Chat extends JPanel implements ActionListener {
     private JButton btnenviar;
     private Chat otroChat;
     private String nombre;
-    private int wins;
     private Tablero tableroPanel;
 
     private Cliente cliente = new Cliente();
@@ -131,7 +130,7 @@ public class Chat extends JPanel implements ActionListener {
 
     public Mensje codificar(String texto) {
 
-        String cmd = texto.trim();
+        String cmd = texto;
 
         if (!cmd.startsWith("/")) {
             return new Mensje(2, 0, texto);
@@ -147,11 +146,6 @@ public class Chat extends JPanel implements ActionListener {
 
         if (cmd.equals("/reset")) {
             return new Mensje(1, 3, texto);
-        }
-
-        if (cmd.startsWith("/nombre ")) {
-            String nuevo = cmd.substring(8).trim();
-            return new Mensje(1, 4, texto, nuevo);
         }
 
         return new Mensje(1, 0, texto);
@@ -184,9 +178,5 @@ public class Chat extends JPanel implements ActionListener {
         } else  {
             txtarea.append("Comando desconocido. Usa /help\n");
         }
-    }
-
-    public void acutualizarChatGlobal(String marcador) {
-        txtarea.append(marcador);
     }
 }

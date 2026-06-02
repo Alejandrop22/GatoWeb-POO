@@ -44,8 +44,7 @@ public class Tablero extends JPanel {
                     deshabilitarBotones();
 
                     if (ganador == 1 || ganador == -1) {
-                        reiniciarTablero();
-                        juego.reiniciarJuego();
+                        mostrarGanador(ganador);
                     }
                 });
             }
@@ -66,19 +65,21 @@ public class Tablero extends JPanel {
                     actualizarBoton(x, y);
                     habilitarBotones();
 
-                    if (ganador == 1 ) {
-                        JOptionPane.showMessageDialog(null, "X gano");
-                        reiniciarTablero();
-                        juego.reiniciarJuego();
-                    }
-                    if (ganador == -1) {
-                        JOptionPane.showMessageDialog(null, "O gano");
-                        reiniciarTablero();
-                        juego.reiniciarJuego();
+                    if (ganador == 1 || ganador == -1) {
+                        mostrarGanador(ganador);
                     }
                 });
             }
         }).start();
+    }
+
+    public void mostrarGanador(int ganador) {
+        if (ganador == 1) {
+            JOptionPane.showMessageDialog(this, "X gano");
+        } else if (ganador == -1) {
+            JOptionPane.showMessageDialog(this, "O gano");
+        }
+        reiniciarTablero();
     }
 
     public void enviarMensaje(String ip, String mensaje, int puerto) {

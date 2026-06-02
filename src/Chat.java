@@ -164,7 +164,7 @@ public class Chat extends JPanel implements ActionListener {
             System.exit(0);
 
         } else if (msg.getComando() == 2) {
-            txtarea.append("Comandos: /nombre, /exit, /help, /reset\n");
+            txtarea.append("Comandos:, /exit, /help, /reset\n");
 
         } else if (msg.getComando() == 3) {
             txtarea.append("Reiniciando tablero...\n");

@@ -1,3 +1,6 @@
+GatoWeb-POO es un juego de Gato (Tic-Tac-Toe) multijugador en tiempo real desarrollado en Java, donde dos jugadores se conectan entre sí directamente mediante sockets para jugar desde distintas computadoras en red. El proyecto cuenta con una interfaz gráfica construida con Java Swing que integra tanto el tablero de juego como un chat en tiempo real, permitiendo a los jugadores comunicarse durante la partida.
+Este proyecto nos sirvió para aplicar los conceptos de Programación Orientada a Objetos como herencia, interfaces y encapsulamiento, así como para comprender el funcionamiento de la comunicación cliente-servidor mediante sockets, el manejo de hilos para la recepción de mensajes en paralelo y la construcción de interfaces gráficas con componentes de Swing.
+
 Para jugar en dos computadores diferentes sigue los siguientes pasos:
 
 1. Descarga este repositorio en ambas computadoras.

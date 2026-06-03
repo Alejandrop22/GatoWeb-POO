@@ -9,6 +9,14 @@ Para jugar en dos computadores diferentes sigue los siguientes pasos:
 7. Asegúrate de ingresar un puerto distinto que el anterior pero el mismo puerto de tablero para ambos jugadores.
 8. Si seguiste bien los pasos, ¡ya estarás conectado con tu contrincante en el tablero! Ahora utiliza los siguientes comandos para disfrutar tu partida.
 
+Ejemplo:
+
+Ventana 1   -> Cliente 9000
+            -> Servidor 9000
+            
+Ventana 2   -> CLiente 9000
+            -> Servidor 9000
+
 Para jugar en una sola computadora sigue los siguientes pasos:
 
 1. Descarga este repositorio en tu computadora.

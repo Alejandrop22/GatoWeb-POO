@@ -20,24 +20,12 @@ Para jugar en una sola computadora sigue los siguientes pasos:
 6. Asegúrate de ingresar un puerto distinto que el anterior pero el mismo puerto de tablero para ambos jugadores.
 7. Si seguiste bien los pasos, ¡ya estarás conectado contigo mismo mediante red! Ahora utiliza los siguientes comandos para disfrutar tu partida.
 
-┌─────────────┐                    ┌─────────────┐
-│   SERVIDOR  │                    │   SERVIDOR  │
-│  Puerto 1   │                    │  Puerto 2   │
-└──────┬──────┘                    └──────┬──────┘
-       │                                  │
-       │            ╲              ╱      │
-       │              ╲          ╱        │
-       │                ╲      ╱          │
-       │                  ╲  ╱            │
-       │                   ╳             │
-       │                  ╱  ╲            │
-       │                ╱      ╲          │
-       │              ╱          ╲        │
-       │            ╱              ╲      │
-┌──────┴──────┐                    ┌──────┴──────┐
-│   CLIENTE   │                    │   CLIENTE   │
-│  Puerto 2   │                    │  Puerto 1   │
-└─────────────┘                    └─────────────┘
+Ejemplo:
+
+Ventana 1   -> Cliente 9000
+            -> Servidor 9001
+Ventana 2   -> CLiente 9001
+            -> Servidor 9000
 
 
 COMANDOS

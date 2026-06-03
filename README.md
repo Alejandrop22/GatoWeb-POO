@@ -22,25 +22,21 @@ Para jugar en una sola computadora sigue los siguientes pasos:
 
 ┌─────────────┐                    ┌─────────────┐
 │   SERVIDOR  │                    │   SERVIDOR  │
-│             │                    │             │
 │  Puerto 1   │                    │  Puerto 2   │
-│  (server)   │                    │  (server)   │
 └──────┬──────┘                    └──────┬──────┘
        │                                  │
-       │         ╲              ╱         │
-       │           ╲          ╱           │
-       │             ╲      ╱             │
-       │               ╲  ╱               │
-       │                ╳                 │
-       │               ╱  ╲               │
-       │             ╱      ╲             │
-       │           ╱          ╲           │
-       │         ╱              ╲         │
+       │            ╲              ╱      │
+       │              ╲          ╱        │
+       │                ╲      ╱          │
+       │                  ╲  ╱            │
+       │                   ╳             │
+       │                  ╱  ╲            │
+       │                ╱      ╲          │
+       │              ╱          ╲        │
+       │            ╱              ╲      │
 ┌──────┴──────┐                    ┌──────┴──────┐
 │   CLIENTE   │                    │   CLIENTE   │
-│             │                    │             │
 │  Puerto 2   │                    │  Puerto 1   │
-│  (client)   │                    │  (client)   │
 └─────────────┘                    └─────────────┘
 
 

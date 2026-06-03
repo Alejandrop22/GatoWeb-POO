@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Chat extends JPanel implements ActionListener {
+public class Chat extends JPanel implements ActionListener, Mensajeador {
     private JTextArea txtarea;
     private JTextField txtfield;
     private JButton btnenviar;
@@ -57,22 +57,15 @@ public class Chat extends JPanel implements ActionListener {
     }
 
     private void iniciarServidorChat() {
-        new Thread(() -> {
-            while (true) {
-                Servidor servidor = new Servidor(puertoLocalChat);
-                String mensaje = servidor.mensajeEntrante();
+        new Thread(new HiloRecepcion(puertoLocalChat, this)).start();
+    }
 
-                if (mensaje == null) {
-                    continue;
-                }
-
-                SwingUtilities.invokeLater(() -> procesarMensajeDeRed(mensaje));
-            }
-        }).start();
+    @Override
+    public void recibirMensaje(String mensaje) {
+        SwingUtilities.invokeLater(() -> procesarMensajeDeRed(mensaje));
     }
 
     private void procesarMensajeDeRed(String mensaje) {
-
         String[] partes = mensaje.split("\\|", 3);
 
         String remitente = partes[1];

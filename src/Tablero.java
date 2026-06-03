@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Tablero extends JPanel {
+public class Tablero extends JPanel implements Mensajeador {
 
     Cliente cliente = new Cliente();
     Juego juego = new Juego();
@@ -52,25 +52,25 @@ public class Tablero extends JPanel {
     }
 
     public void escucharMensaje(int puerto) {
-        new Thread(() -> {
-            while (true) {
-                Servidor servidor = new Servidor(puerto);
-                String mensaje = servidor.mensajeEntrante();
+        new Thread(new HiloRecepcion(puerto, this)).start();
+    }
 
-                int x = mensaje.charAt(0) - 48;
-                int y = mensaje.charAt(2) - 48;
+    @Override
+    public void recibirMensaje(String mensaje) {
+        SwingUtilities.invokeLater(() -> procesarMensajeDeJuego(mensaje));
+    }
 
-                SwingUtilities.invokeLater(() -> {
-                    int ganador = juego.recibirCoordenadas(x, y);
-                    actualizarBoton(x, y);
-                    habilitarBotones();
+    private void procesarMensajeDeJuego(String mensaje) {
+        int x = mensaje.charAt(0) - 48;
+        int y = mensaje.charAt(2) - 48;
 
-                    if (ganador == 1 || ganador == -1) {
-                        mostrarGanador(ganador);
-                    }
-                });
-            }
-        }).start();
+        int ganador = juego.recibirCoordenadas(x, y);
+        actualizarBoton(x, y);
+        habilitarBotones();
+
+        if (ganador == 1 || ganador == -1) {
+            mostrarGanador(ganador);
+        }
     }
 
     public void mostrarGanador(int ganador) {

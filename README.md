@@ -24,6 +24,7 @@ Ejemplo:
 
 Ventana 1   -> Cliente 9000
             -> Servidor 9001
+            
 Ventana 2   -> CLiente 9001
             -> Servidor 9000
 
